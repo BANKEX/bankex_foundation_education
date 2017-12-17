@@ -3,15 +3,14 @@
 ## Что вы узнаете:
 1. Основы работы в open source сообществах :octocat:
 1. Как оперировать с криптовалютой (эфиром) и токенами :money_with_wings:
-1. Узнаете что такое ERC20 и Open Zeppelin
-1. Научитесь работать с Remix & Etherscan 
+1. Узнаете что такое ERC20 и Open Zeppelin :balloon:
+1. Научитесь работать с Remix & Etherscan :computer:
 
-# Что мы сделаем:
+# Что сделаем:
 1. Cоздадим свои собсвенные именные крипто-монеты :moneybag:
 1. Научимся делать крипто-котиков! :cat:
 
 ## Регистрация на курс:
-
 1. Для регистрации и отправки задач вам нужно:
 1. Склонировать репозиторий https://github.com/BankEx/bankex_foundation_education
 1. Создать папку со своим ником
@@ -20,4 +19,4 @@
 1. Сделать pull request в репозиторий https://github.com/BankEx/bankex_foundation_education
 1. Ожидайте рассмотрения вашей заявки. :+1:
 
-See more [here](https://docs.google.com/document/d/1gxaN8wzCra_V3aMdQTvXFv6UaMUXop42C_4C70hxQM4).
+Детальная информация с дальнейшими заданиями [по ссылке](https://docs.google.com/document/d/1gxaN8wzCra_V3aMdQTvXFv6UaMUXop42C_4C70hxQM4)
