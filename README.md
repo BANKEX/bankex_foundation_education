@@ -14,7 +14,7 @@
 
 1. Для регистрации и отправки задач вам нужно:
 1. Склонировать репозиторий https://github.com/BankEx/bankex_foundation_education
-1. Создать папку со своим именем
+1. Создать папку со своим ником
 1. Создать там небольшое резюме в формате txt или markdown.
 1. Закомитить его в репозиторий
 1. Сделать pull request в репозиторий https://github.com/BankEx/bankex_foundation_education
