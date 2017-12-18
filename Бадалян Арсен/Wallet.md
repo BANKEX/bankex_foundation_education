@@ -4,3 +4,5 @@
 Ссылка на сайте:
 https://rinkeby.etherscan.io/address/0xf8502b0ba7872f46ba27d1cf579fdaadb8004a1d
 
+Отправка тестового эфира в протокол Plasma:
+0x3ff0d73ae6887751e5325a96e68ed27c08723bde3a4ecd4c37fcf5079e7647aa
