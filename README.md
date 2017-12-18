@@ -22,4 +22,10 @@
 1. Сделать pull request в репозиторий https://github.com/BankEx/bankex_foundation_education
 1. Ожидайте рассмотрения вашей заявки. :+1:
 
-Детальная информация с дальнейшими заданиями [по ссылке](https://docs.google.com/document/d/1gxaN8wzCra_V3aMdQTvXFv6UaMUXop42C_4C70hxQM4)
+## Контакты:
+
+По вопросам/предложениям/улучшениям курса писать Петру Королеву:
+https://github.com/skywinder/ 
+www.t.me/skywinder
+
+Детальная информация с дальнейшими заданиями будет в чате (если вас там нет - обращайтесь к авторам проекта) и по  [по ссылке](https://docs.google.com/document/d/1gxaN8wzCra_V3aMdQTvXFv6UaMUXop42C_4C70hxQM4)
