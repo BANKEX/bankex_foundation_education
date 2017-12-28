@@ -1,0 +1,17 @@
+{
+  "name": "task1",
+  "version": "0.0.1",
+  "description": "first task for the bank ex solidity course",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+    "devDependencies": {
+    "zeppelin-solidity": "^1.5.0"
+  }
+}
