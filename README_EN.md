@@ -5,7 +5,7 @@
 
 ## This is the BANKEX Foundation training course to provide basics skills, how to work with blockchain technologies 
 
-###[Russian version of this course](https://github.com/BANKEX/bankex_foundation_education/blob/master/README.md)
+### [Russian version of this course](https://github.com/BANKEX/bankex_foundation_education/blob/master/README.md)
 
 
 
