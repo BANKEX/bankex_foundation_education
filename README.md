@@ -1,7 +1,7 @@
 ![bkx-blockchain-education-github](https://user-images.githubusercontent.com/3356474/34314177-29174edc-e782-11e7-8efd-1f26e35c3398.png)
 
 # Course01: Basics of smart contracts 
-[English version](#https://github.com/BANKEX/bankex_foundation_education/blob/master/README_EN.md)
+[English version](https://github.com/BANKEX/bankex_foundation_education/blob/master/README_EN.md)
 ---
 ## Это обучающая программа BANKEX Foundation по основам работы с блокчейн технологиями
 Для прохождения курса не нужно быть опытным программистом - достаточно базовых знаний работы с компьютером.
