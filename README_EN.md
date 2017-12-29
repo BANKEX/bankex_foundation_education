@@ -46,13 +46,13 @@ To complete the course, you do not need to be an experienced programmer - enough
 
 ## Contacts:
 
-- For questions / suggestions / improvements, contact [@skywinder] (https://github.com/skywinder/):
-[www.t.me/skywinder] (www.t.me/skywinder)
+- For questions / suggestions / improvements, contact [@skywinder](https://github.com/skywinder/):
+[skywinder](www.t.me/skywinder)
 
 - Here is telegram chat where you can discuss your questions:
 [Telegram Chat](https://t.me/joinchat/BQeMJ09hr3kRTiR8yTTuTA). Feel free to contact me with any queries about this course!
 
-- If you have any questions about the course - feel free to open [Issue] (https://github.com/BANKEX/bankex_foundation_education/issues/new)
+- If you have any questions about the course - feel free to open [Issue](https://github.com/BANKEX/bankex_foundation_education/issues/new)
 
 
 - Detailed information with further tasks will be posted in the [Telegram Chat](https://t.me/joinchat/BQeMJ09hr3kRTiR8yTTuTA) and available [by the link](https://docs.google.com/document/d/1gxaN8wzCra_V3aMdQTvXFv6UaMUXop42C_4C70hxQM4)
