@@ -1,31 +1,5 @@
 pragma solidity ^0.4.11;
 
-//------------------------------------------------------------------------------------------------
-// ERC20 Standard Token Implementation, based on ERC Standard:
-// https://github.com/ethereum/EIPs/issues/20
-// With some inspiration from ConsenSys HumanStandardToken as well
-// Copyright 2017 BattleDrome
-//------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------
-// LICENSE
-//
-// This file is part of BattleDrome.
-// 
-// BattleDrome is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-// 
-// BattleDrome is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-// 
-// You should have received a copy of the GNU General Public License
-// along with BattleDrome.  If not, see <http://www.gnu.org/licenses/>.
-//------------------------------------------------------------------------------------------------
-
 contract ERC20Standard {
 	uint public totalSupply;
 	
