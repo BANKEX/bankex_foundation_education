@@ -55,4 +55,4 @@ To complete the course, you do not need to be an experienced programmer - enough
 - If you have any questions about the course - feel free to open [Issue](https://github.com/BANKEX/bankex_foundation_education/issues/new)
 
 
-- Detailed information with further tasks will be posted in the [Telegram Chat](https://t.me/joinchat/BQeMJ09hr3kRTiR8yTTuTA) and available [by the link](https://docs.google.com/document/d/1gxaN8wzCra_V3aMdQTvXFv6UaMUXop42C_4C70hxQM4)
+- Detailed information with further tasks will be posted in the [Telegram Chat](https://t.me/joinchat/C199gE65M4nTH-omQMr8aw) and available [by the link](https://docs.google.com/document/d/1f7e7bvI0okNhjefN5723x2ijcffZTXEltaOscUPkyCI/edit?usp=sharing)
