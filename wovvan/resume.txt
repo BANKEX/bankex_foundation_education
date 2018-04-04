@@ -1,0 +1,37 @@
+Efanov Vladimir
++79002940064
+efanov1993@gmail.com
+
+About myself:
+  Have over 4 years of experience in web development
+  Graduated with excellence Kuban State Technological University
+  Took part in competitions ACM-ICPC
+  Know many algorithms. And I understand, how write cleaner and faster code
+  Try not to stagnate and to learn new things
+
+FrontEnd:
+  Deep knowledge of JavaScript, CSS and DOM
+  Worked with that frameworks / libraries: AngularJS(2 years),
+    Backbone/Marionette (6 months), now I am working with React (1 year)
+  Worked on client with MV*, flux, but prefer redux, and understand MobX
+  Experience using AJAX to consume JSON APIs, WebSocket
+  Experience using main pre/postprocessors. Work with flexbox and grid.
+    mobile and cross-browser markup
+  Experience using development methodology web apps: BEM, MCSS, but I like to
+    use CSS Modules.
+  Have experience XSLT transformation
+
+Mobile:
+  Experience using React Native (You can search my app in playMarket and appleStore RNDMradio)
+  Unity3d (simple game Flappy Santa)
+
+BackEnd:
+  know NodeJS(Express), little bit C# (Entity Framework)
+  ORM: Sequelize
+  DB: Postgresql, MySQL, Redis, Oracle (PL/SQL)
+
+Testing: Protractor(Jasmine), Karma
+Task runner/builder: webpack(2), grunt, gulp
+Preferred methodology works with team: Agile(scrum)
+
+
