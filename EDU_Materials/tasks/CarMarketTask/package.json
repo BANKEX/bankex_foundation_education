@@ -1,0 +1,26 @@
+{
+  "name": "isao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.bankex.team:proof_of_asset/ISAO.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^7.2.1",
+    "dotenv": "^5.0.1",
+    "ethereumjs-util": "^5.1.5",
+    "ethereumjs-wallet": "^0.6.0",
+    "solium": "^1.1.6",
+    "truffle-wallet-provider": "0.0.5"
+  }
+}
