@@ -36,10 +36,10 @@ contract ICarMarket {
     bool constant internal IN_STOCK = true;
     bool constant internal OUT_OF_STOCK = false;
 
-    address public carDiller;
+    address public carDealer;
 
     modifier onlyCarDiller() {
-        require(carDiller == msg.sender);
+        require(carDealer == msg.sender);
         _;
     }
 
@@ -57,7 +57,7 @@ contract ICarMarket {
     function getOwnerCars(uint _carOwnerID) external view returns (uint[MAX_CARS_PER_PERSON]);
     function editPresence(uint _carID, bool _presence) external returns (bool);
 
-    event AddCar(address carDiller, uint carID);
+    event AddCar(address carDealer, uint carID);
     event NewCarOwner(uint carOnwerID, address carOwnerAddress);
     event BuyCar(uint carID, uint carOwnerID);
     event SetDiscount(uint carOwnerID, uint discount);
@@ -75,7 +75,7 @@ contract CarsMarket is ICarMarket {
     mapping (address => uint8) isCarOwner;
 
     constructor () public {
-        carDiller = msg.sender;
+        carDealer = msg.sender;
     }
 
     struct CarOwner {
@@ -94,7 +94,7 @@ contract CarsMarket is ICarMarket {
     }
 
     function buyCar(uint _carID) payable public {
-        require(carDiller != msg.sender);
+        require(carDealer != msg.sender);
         require(_carID != NULL_CAR);
         require(_carID < carID);
         Car storage c = cars[_carID];
