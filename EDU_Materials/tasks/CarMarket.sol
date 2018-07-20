@@ -38,7 +38,7 @@ contract ICarMarket {
 
     address public carDealer;
 
-    modifier onlyCarDiller() {
+    modifier onlyCarDealer() {
         require(carDealer == msg.sender);
         _;
     }
@@ -138,7 +138,7 @@ contract CarsMarket is ICarMarket {
         uint _petrolConsumptionPerMile,
         bytes32 _signature,
         bool _presence
-    ) external onlyCarDiller returns  (bool) {
+    ) external onlyCarDealer returns  (bool) {
         Car storage c = cars[carID];
         c.price = _price;
         c.manufacturer = _manufacturer;
@@ -151,7 +151,7 @@ contract CarsMarket is ICarMarket {
         return true;
     }
 
-    function setCarOwnerDiscount(uint _carOwnerID, uint _discount) external onlyCarDiller returns (bool) {
+    function setCarOwnerDiscount(uint _carOwnerID, uint _discount) external onlyCarDealer returns (bool) {
         require(_discount >= DECIMAL_MULTIPLIER/100 && _discount <= DECIMAL_MULTIPLIER);
         require(_carOwnerID < carID);
         carOwners[_carOwnerID].discount = _discount;
@@ -159,7 +159,7 @@ contract CarsMarket is ICarMarket {
         return true;
     }
 
-    function editPresence(uint _carID, bool _presence) external onlyCarDiller returns (bool) {
+    function editPresence(uint _carID, bool _presence) external onlyCarDealer returns (bool) {
         Car storage c = cars[_carID];
         require(c.presence != _presence);
         c.presence = _presence;
