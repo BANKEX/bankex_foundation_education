@@ -18,7 +18,7 @@ The second one should contains the following properties:
 ```
 2. Create next variables:
 ```
-1) carDiller
+1) carDealer
 2) carID (this variable should starts from 1)
 3) carOwnerID (this variable should starts from 1)
 4) cars mapping (carID => car)
@@ -34,7 +34,7 @@ Create function which will creates new Car object. Call it as `addCar`.
 2. Add all properties to `Car` object.
 3. Increment `carID` variable.
 ### Task 4: Modifier. Require statement.
-Create `onlyCarDiller` modifier that will allows to give access only for `carDiller`.
+Create `onlyCarDealer` modifier that will allows to give access only for `carDealer`.
 Add this modifier to `addCar` function.
 ### Task 5: Payable function. Msg.sender, msg.value. Conditional statements. Loop. Transfer method.
 Create `payable` function called `buyCar` with one parameter called `_carID`. This function will accept ETH from buyers.
@@ -49,7 +49,7 @@ First, we prepare the variables for our function:
 4. Create `IN_STOCK` and `OUT_OF_STOCK` variables with values `true` and `false` respectively.
 
 Let's start to code our `buyCar` function:
-1. The `carDiller` can't buy a car.
+1. The `carDealer` can't buy a car.
 2. Parameter `_carID` should be less or equal last `carID`.
 **Prompt:** `carID` variable contains future car unique identifier.
 3. Parameter `_carID` shouldn't be equals to `NULL_CAR`.
@@ -84,7 +84,7 @@ You have to create `getOwnerCars` function that will returns all cars which `car
 ### Task 7: Events
 Create:
 ```javascript
- event AddCar(address carDiller, uint carID);
+ event AddCar(address carDealer, uint carID);
  event NewCarOwner(uint carOnwerID, address carOwnerAddress);
  event BuyCar(uint carID, uint carOwnerID);
 ```
