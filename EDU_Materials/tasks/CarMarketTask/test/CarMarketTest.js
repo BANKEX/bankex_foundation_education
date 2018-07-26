@@ -57,34 +57,33 @@ contract('CarMarket', (accounts) => {
     });
 
     describe('MAIN TEST', () => {
-        it("should add new car to Market", async function () {
-            let firstCar = cars[0];
-            await carMarket.addCar(
-                firstCar.price,
-                firstCar.manufacturer,
-                firstCar.model,
-                firstCar.config,
-                firstCar.petrolConsumptionPerMile,
-                firstCar.signature,
-                firstCar.presence,
-                {from: carDealer}
-            );
-            let createdCar = await carMarket.cars(1);
-            console.log(`
-    Car price: ${fw(createdCar[0])}
-    Car manufacturer: ${createdCar[1]}
-    Car petrolConsumption: ${createdCar[2].toNumber()}
-    Car signature: ${createdCar[3]}
-    Car presence: ${createdCar[4]}
-            `);
-            assert(
-                createdCar[0].eq(firstCar.price),
-                firstCar.manufacturer == createdCar[1],
-                createdCar[2].eq(firstCar.petrolConsumptionPerMile),
-                createdCar[3] == firstCar.signature,
-                firstCar.presence == createdCar[4]
-            );
-        });
+    //     it("should add new car to Market", async function () {
+    //         let firstCar = cars[0];
+    //     let createdCar = await carMarket.addCar(
+    //             firstCar.price,
+    //             firstCar.manufacturer,
+    //             firstCar.model,
+    //             firstCar.config,
+    //             firstCar.petrolConsumptionPerMile,
+    //             firstCar.signature,
+    //             firstCar.presence,
+    //             {from: carDealer}
+    //         );
+    //         console.log(`
+    // Car price: ${fw(createdCar[0])}
+    // Car manufacturer: ${createdCar[1]}
+    // Car petrolConsumption: ${createdCar[2].toNumber()}
+    // Car signature: ${createdCar[3]}
+    // Car presence: ${createdCar[4]}
+    //         `);
+    //         assert(
+    //             createdCar[0].eq(firstCar.price),
+    //             firstCar.manufacturer == createdCar[1],
+    //             createdCar[2].eq(firstCar.petrolConsumptionPerMile),
+    //             createdCar[3] == firstCar.signature,
+    //             firstCar.presence == createdCar[4]
+    //         );
+    //     });
 
         it("should buy car", async function () {
             let firstCar = cars[0];
@@ -110,6 +109,51 @@ contract('CarMarket', (accounts) => {
                 carOwner[0] == buyers.account2
             );
         });
+        it("should release ETH to carDealer", async function () {
+            let firstCar = cars[0];
+            let tx = await carMarket.addCar(
+                firstCar.price,
+                firstCar.manufacturer,
+                firstCar.model,
+                firstCar.config,
+                firstCar.petrolConsumptionPerMile,
+                firstCar.signature,
+                firstCar.presence,
+                {from: carDealer}
+            );
+
+            await carMarket.buyCar(tx.logs[0].args.carID, {value: firstCar.price, from: buyers.account2});
+            let balanceBefore = await web3.eth.getBalance(carDealer);
+            console.log(fw(balanceBefore));
+            let tx1 = await carMarket.releaseETH({from: carDealer, gasPrice: gasPrice});
+            let gasUsed = tx1.receipt.gasUsed;
+            let gasCost = gasPrice.mul(gasUsed);
+            let balanceAfter = await web3.eth.getBalance(carDealer);
+            console.log(fw(balanceAfter));
+            console.log(fw(balanceAfter.minus(balanceBefore)))
+            assert(balanceAfter.eq(balanceBefore.minus(gasCost).plus(firstCar.price)));
+        });
+
+        it("should edit presence", async function () {
+            let firstCar = cars[0];
+            let carID = 1;
+            let tx = await carMarket.addCar(
+                firstCar.price,
+                firstCar.manufacturer,
+                firstCar.model,
+                firstCar.config,
+                firstCar.petrolConsumptionPerMile,
+                firstCar.signature,
+                firstCar.presence,
+                {from: carDealer}
+            );
+            await carMarket.buyCar(tx.logs[0].args.carID, {value: firstCar.price, from: buyers.account2});
+            await carMarket.releaseETH({from: carDealer, gasPrice: gasPrice});
+            await carMarket.editPresence(carID, false, {from: carDealer});
+            let createdCar = await carMarket.cars(carID);
+            console.log(createdCar[4]);
+            assert(createdCar[4] == false);
+        })
     });
 
     describe('CALC TEST', () => {
