@@ -1,7 +1,7 @@
 if (typeof web3 !== 'undefined')
     web3 = new Web3(web3.currentProvider);
 else
-    web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+    web3 = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/1u84gV2YFYHHTTnh8uVl'));
 
 const instance = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
 
@@ -11,18 +11,18 @@ function getCarDiller() {
         document.getElementById('car-owner').innerText = doc;
     });
 }
-// instance.events.BuyCar({
-//     fromBlock: 0
-// }, function(error, event){ console.log(error, event); })
-//     .on('data', function(event){
-//         console.log(event); // same results as the optional callback above
-//     })
-//     .on('changed', function(event){
-//         console.log(changed)
-//         // remove event from local database
-//     })
-//     .on('error', console.error);
-
+instance.events.AddCar({
+    fromBlock: 0
+}, function(error, event){ console.log(error, event); })
+    .on('data', function(event){
+        console.log(event); // same results as the optional callback above
+    })
+    .on('changed', function(event){
+        console.log(changed)
+        // remove event from local database
+    })
+    .on('error', console.error);
+console.log(web3.eth.getTransactionCount(getAddress("0x5a8fe2151d9ab0fddbdc3f85a71b056129ed85dc8fc66400227393d5ac817ded")))
 async function addCar() {
 
     const car = {
@@ -32,10 +32,10 @@ async function addCar() {
         config: document.getElementById('config').value,
         petrolConsumptionPerMile: document.getElementById('petrolConsumptionPerMile').value,
         signature: web3.utils.keccak256(web3.utils.stringToHex(document.getElementById('signature').value)),
-        presence: $('input[name=presence]:checked', '#config').val()
+        presence:  $('input[name=presence]:checked', '#config').val()
     };
 
-    instance.methods.addCar(
+    let data = instance.methods.addCar(
         car.price,
         car.manufacturer,
         car.model,
@@ -43,26 +43,45 @@ async function addCar() {
         car.petrolConsumptionPerMile,
         car.signature,
         car.presence
-    ).send({from: (await web3.eth.getAccounts())[0], gas: 99999999999, gasPrice: 9999})
-        .on('transactionHash', function(hash){
-            alert(`Tx Hash: ${hash}`);
-        })
-        .on('receipt', function(receipt){
-            console.log(receipt);
-            alert(`Car Dealer: ${receipt.events.AddCar.returnValues.carDealer}`);
-            alert(`Car ID: ${receipt.events.AddCar.returnValues.carID}`);
-        })
-        // .on('confirmation', function(confirmationNumber, receipt){
-        //     console.log(confirmationNumber, receipt)
-        // })
-        .on('error', console.error);
+    ).encodeABI();
+
+    signAndSendRawTx(await web3.eth.getTransactionCount(getAddress("0x5a8fe2151d9ab0fddbdc3f85a71b056129ed85dc8fc66400227393d5ac817ded")), data, "0x5a8fe2151d9ab0fddbdc3f85a71b056129ed85dc8fc66400227393d5ac817ded", (err, result) => {
+        console.log(err, result)
+    })
+
+    // instance.methods.addCar(
+    //     car.price,
+    //     car.manufacturer,
+    //     car.model,
+    //     car.config,
+    //     car.petrolConsumptionPerMile,
+    //     car.signature,
+    //     car.presence
+    // ).send({from: (await web3.eth.getAccounts())[0], gas: 99999999999, gasPrice: 9999})
+    //     .on('transactionHash', function(hash){
+    //         alert(`Tx Hash: ${hash}`);
+    //     })
+    //     .on('receipt', function(receipt){
+    //         console.log(receipt);
+    //         alert(`Car Dealer: ${receipt.events.AddCar.returnValues.carDealer}`);
+    //         alert(`Car ID: ${receipt.events.AddCar.returnValues.carID}`);
+    //     })
+    //     .on('confirmation', function(confirmationNumber, receipt){
+    //         console.log(confirmationNumber, receipt)
+    //     })
+    //     .on('error', console.error);
 }
 
 async function buyCar() {
     const carID = document.getElementById('car-id').value;
     const value = document.getElementById('price-to-buy').value
 
-    instance.methods.buyCar(carID).send({from: (await web3.eth.getAccounts())[8], value: value, gas: 99999999999, gasPrice: 9999})
+    console.log(carID)
+    console.log(value)
+
+    console.log((await web3.eth.getAccounts())[8])
+
+    instance.methods.buyCar(Number(carID)).send({from: (await web3.eth.getAccounts())[2], value: Number(value), gas: 99999999999999, gasPrice: 9999})
     .on('transactionHash', function(hash){
         alert(`TX Hash: ${hash}`);
     })
@@ -76,9 +95,9 @@ async function buyCar() {
         }
 
     })
-    // .on('confirmation', function(confirmationNumber, receipt){
-    //     console.log(confirmationNumber, receipt)
-    // })
+    .on('confirmation', function(confirmationNumber, receipt){
+        console.log(confirmationNumber, receipt)
+    })
     .on('error', console.error);
 }
 
@@ -137,7 +156,7 @@ function signAndSendRawTx(nonce, data, from, callback) {
     tx.sign(privateKeyBuffer);
     const serializedTx = tx.serialize();
 
-    web3.eth.sendRawTransaction('0x' + serializedTx.toString('hex'), (err, transactionHash) => {
+    web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, transactionHash) => {
         if (err) {
             console.log(err);
             callback(err, null);
@@ -147,4 +166,10 @@ function signAndSendRawTx(nonce, data, from, callback) {
     });
 }
 
-console.log(createNewAccount())
+// let a = createNewAccount();
+// console.log(a);
+let b = getAddress("0x44feb5684e374aa2f120af20dd058141389d40b2cce4f137eac60ffa213b443a");
+console.log(b)
+
+const balance = web3.eth.getBalance("0x8242c6e34db36082eb07806bc8fae086927b3279").then(a=>console.log(a));
+// console.log(balance);
