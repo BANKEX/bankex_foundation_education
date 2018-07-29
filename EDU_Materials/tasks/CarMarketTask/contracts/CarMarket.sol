@@ -58,7 +58,7 @@ contract ICarMarket {
     function editPresence(uint _carID, bool _presence) external returns (bool);
 
     event AddCar(address carDealer, uint carID);
-    event NewCarOwner(uint carOnwerID, address carOwnerAddress);
+    event NewCarOwner(uint carOwnerID, address carOwnerAddress);
     event BuyCar(uint carID, uint carOwnerID);
     event SetDiscount(uint carOwnerID, uint discount);
     event EditPresence(uint carID, bool presence);
